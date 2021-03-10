@@ -1,7 +1,5 @@
-const { response } = require('express');
-
 const express = require('express');
-const app = express;
+const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
@@ -28,9 +26,9 @@ app.use(methodOverride('_method'))
 
 
 
-app.get('/users', (req, res) => {
-    res.render('users/home')
+app.get('/home', (req, res) => {
+    res.render('/users/index')
 })
-app.listen(8000, () => {
-    console.log("App is listening on port 8000")
+app.listen(8080, () => {
+    console.log("App is listening on port 8080")
 })

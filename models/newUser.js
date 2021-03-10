@@ -13,8 +13,8 @@ const productSchema = new mongoose.Schema({
     },
     email: {
         type: String,
+        required: true,
         lowercase: true,
-        enum: ['fruit', 'vegetable', 'dairy']
     },
     password: {
         type: Number || String,
