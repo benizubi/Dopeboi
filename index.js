@@ -24,10 +24,13 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 
-
-
+// account manage //
+app.get('/login', (req, res) => {
+    res.render('users/login')
+})
+//Home page.//
 app.get('/home', (req, res) => {
-    res.render('users/index')
+    res.render('users/index',)
 })
 app.listen(8080, () => {
     console.log("App is listening on port 8080")
