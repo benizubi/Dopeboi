@@ -1,27 +1,26 @@
 body {
-    background: #808080;
+    background: #ffffff;
     font-family: "Nunito", sans-serif;
 }
-#cards1 {
-    width: 50px;
-    max-width: 50%;
-    height: 50px;
-    display: inline-block;
-    margin: 10px;
-    align-items: flex-start;
-    justify-content: right;
+#card1{
+    display:block;
+    height: 200px;
+    width: 100px;
 }
 #card2{
-    max-width: 50%;
-    width: 50px;
-    height: 50px;
-    display: inline-block;
-    margin: 10px;
-    align-items: flex-end;
-    justify-content: right;
-    
+    display:block;
+    height: 20px;
+    width: 10px;
+    max-height: 100px;
+    max-width: 100px;
 }
 
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 .blurb h2 {
    color: #EA1C2C;
    font-weight: 100;
@@ -84,4 +83,17 @@ body {
     }
 }
 
-
+footer{
+    background-color: rgb(182, 189, 194);
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    
+}
+footer:hover{
+    color: rgb(153, 26, 26);
+}
+.creator{
+    height: 80px;
+    background-color: rgb(54, 59, 61);
+    color: seashell ;
+    }
