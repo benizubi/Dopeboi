@@ -28,8 +28,8 @@ app.use(methodOverride('_method'))
 
 
 // account manage //
-app.get('/login', (req, res) => {
-    res.render('users/login')
+app.get('/account', (req, res) => {
+    res.render('/account')
 })
 //Home page.//
 app.get('/home', (req, res) => {

@@ -84,16 +84,17 @@ body {
 }
 
 footer{
-    background-color: rgb(182, 189, 194);
-    color: rgb(0, 0, 0);
+    background-color: rgb(222, 228, 231);
+    color: rgb(153, 23, 23);
     text-decoration: none;
     
 }
 footer:hover{
-    color: rgb(153, 26, 26);
+    color: rgb(8, 228, 37);
 }
 .creator{
     height: 80px;
-    background-color: rgb(54, 59, 61);
+    background-color: rgb(128, 134, 136);
     color: seashell ;
+    text-align: center;
     }
