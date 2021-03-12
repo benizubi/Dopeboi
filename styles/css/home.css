@@ -84,17 +84,16 @@ body {
 }
 
 footer{
-    background-color: rgb(222, 228, 231);
-    color: rgb(153, 23, 23);
+    color: rgb(75, 75, 75);
     text-decoration: none;
     
 }
-footer:hover{
-    color: rgb(8, 228, 37);
+#bottompage:hover{
+    color: rgba(0,0,0,100);
 }
-.creator{
-    height: 80px;
+#bottompage2{
+    color: snow;
+}
+#bottompage{
     background-color: rgb(128, 134, 136);
-    color: seashell ;
-    text-align: center;
     }
