@@ -1,8 +1,10 @@
+// Requiring allows us to use these framework
 const express = require('express');
 const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
+const port = 8080;
 
 const signUp = require('./models/newUser')
 const signIn = require('./models/oldUser')
@@ -18,6 +20,7 @@ mongoose.connect('mongodb://localhost:27017/dopeboi', { useNewUrlParser: true, u
     })
 
 app.set('views', path.join(__dirname, 'views'));
+// this allows us to use ejs
 app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, 'public')))
@@ -50,6 +53,6 @@ app.get('/shopping', (req, res) => {
 app.get('/home', (req, res) => {
     res.render('users/index',)
 })
-app.listen(8080, () => {
+app.listen(port, () => {
     console.log("App is listening on port 8080")
 })
