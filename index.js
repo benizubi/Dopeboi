@@ -32,30 +32,10 @@ app.use(express.static(path.join(__dirname, 'styles')))
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 
-
-// account manage //
-app.get('/account', (req, res) => {
-    res.render('users/account')
-})
-// gallery //
-app.get('/gallery', (req, res) => {
-    res.render('users/gallery')
-})
-//register //
-app.get('/register', (req, res) => {
-    res.render('users/register')
-})
-// shopping //
-app.get('/shopping', (req, res) => {
-    res.render('users/shopping')
-})
+//connecting the routes 
+const pages = require('./routes/pages.js')
 
 
-
-//Home page.//
-app.get('/home', (req, res) => {
-    res.render('users/index',)
-})
 app.listen(port, () => {
     console.log("App is listening on port 8080")
 })
