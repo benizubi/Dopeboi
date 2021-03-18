@@ -5,10 +5,13 @@ const path = require('path');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const port = 8080;
+// requiring it here to i can connect to the db and linking both pages.
+const config = require('./config/database')
 
 const signUp = require('./models/newUser')
 const signIn = require('./models/oldUser')
-mongoose.connect('mongodb://localhost:27017/dopeboi', { useNewUrlParser: true, useUnifiedTopology: true })
+
+mongoose.connect(config.database, { useNewUrlParser: true, useUnifiedTopology: true })
     // shopApp is the name of the database we're going to use   
     .then(() => {
         console.log("Mongo Connection Open!")
