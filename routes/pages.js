@@ -21,8 +21,6 @@ router.get('/shopping', (req, res) => {
     res.render('users/shopping')
 })
 
-
-
 //Home page.//
 app.get('/', (req, res) => {
     res.render('index', {
