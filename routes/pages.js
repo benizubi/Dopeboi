@@ -1,4 +1,3 @@
-const { Router } = require('express');
 const express = require('express')
 // this allows us to switch between pages using ejs here.
 const router = express.Router();
@@ -22,7 +21,7 @@ router.get('/shopping', (req, res) => {
 })
 
 //Home page.//
-app.get('/', (req, res) => {
+router.get('/home', (req, res) => {
     res.render('index', {
         title: 'Home'
     });
