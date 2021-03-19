@@ -3,12 +3,11 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
-const methodOverride = require('method-override');
-
-// requiring the files to connect the pages.
-const config = require('./config/database')
-const pages = require('./routes/pages.js')
-const adminPages = require('./routes/adminPage.js');
+// const methodOverride = require('method-override');
+const config = require('./config/database');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const expressValidator = require('express-validator');
 
 const signUp = require('./models/newUser')
 const signIn = require('./models/oldUser')
@@ -16,25 +15,53 @@ const signIn = require('./models/oldUser')
 //connect to db
 mongoose.connect(config.database)
 const db = mongoose.connection;
-db
-    // shopApp is the name of the database we're going to use   
-    .then(() => {
-        console.log("Mongo Connection Open!")
-        // usually our code can go here, but we don't need to nest all our code here 
-    })
-    .catch(err => {
-        console.log(log("OH no error!!!"))
-        console.log(err)
-    })
+db.on('error', console.error.bind(console, 'Connection error:'));
+db.once('open', function () {
+    console.log('Connected to MongoDB');
+});
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-// Set public /dtyle folder
-app.use(express.static(path.join(__dirname, 'public')))
-app.use(express.static(path.join(__dirname, 'styles')))
+// Set public /style folder / override method
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'styles')));
+// app.use(express.urlencoded({ extended: true }))
+// app.use(methodOverride('_method'));
 
-app.use(express.urlencoded({ extended: true }))
-app.use(methodOverride('_method'))
+
+// Body Parser middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// Express Session middleware
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+}))
+
+//Express Validator middleware
+app.use(expressValidator({
+    errorFormatter: function (param, msg, value) {
+        const namespace = param.split('.'),
+            root = namespace.shift(),
+            formParam = root;
+        while (namespace.length) {
+            formParam += '[' + namespace.shift() + ']';
+        }
+        return {
+            param: formParam,
+            msg: msg,
+            value: value
+        };
+
+    }
+}));
+
+// setting routers 
+const pages = require('./routes/pages.js')
+const adminPages = require('./routes/adminPage.js');
 
 
 app.get('/admin/pages', adminPages);
@@ -43,5 +70,5 @@ app.get('/', pages);
 // starting the server here we using port 8080
 const port = 8080;
 app.listen(port, () => {
-    console.log("App is listening on port 8080")
+    console.log("App is listening on port 8080");
 })
