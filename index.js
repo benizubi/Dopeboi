@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 // const methodOverride = require('method-override');
 const config = require('./config/database');
 
-const bodyParser = require('body-parser');
+const bodyP = require('body-parser');
 const session = require('express-session');
 const expressValidator = require('express-validator');
 
@@ -32,8 +32,8 @@ app.use(express.static(path.join(__dirname, 'styles')));
 
 
 // Body Parser middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyP.urlencoded({ extended: false }));
+app.use(bodyP.json());
 
 // Express Session middleware
 app.use(session({
