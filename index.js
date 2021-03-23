@@ -15,9 +15,9 @@ const signIn = require('./models/oldUser')
 //connect to db
 mongoose.connect(config.database)
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'Connection error:'));
+db.on('error', console.error.bind(console, 'Check Connection Error:'));
 db.once('open', function () {
-    console.log('Connected to MongoDB');
+    console.log('Successfully Connected to MongoDB');
 });
 // init app
 const app = express();
@@ -74,6 +74,12 @@ const adminPages = require('./routes/adminPage.js');
 
 app.get('/admin/pages', adminPages);
 app.get('/', pages);
+
+app.get('/home', (req, res) => {
+    res.render('users/index', {
+        title: 'Home'
+    });
+})
 
 // starting the server here we using port 8080
 const port = 8080;
