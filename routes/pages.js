@@ -22,7 +22,7 @@ router.get('/shopping', (req, res) => {
 
 //Home page.//
 router.get('/home', (req, res) => {
-    res.render('/users/index', {
+    res.render('index', {
         title: 'Home'
     });
 })
