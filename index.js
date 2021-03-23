@@ -72,14 +72,9 @@ const pages = require('./routes/pages.js')
 const adminPages = require('./routes/adminPage.js');
 
 
-app.get('/admin/pages', adminPages);
+app.use('/admin/pages', adminPages);
 app.get('/', pages);
 
-app.get('/home', (req, res) => {
-    res.render('users/index', {
-        title: 'Home'
-    });
-})
 
 // starting the server here we using port 8080
 const port = 8080;
