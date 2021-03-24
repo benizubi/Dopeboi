@@ -1,9 +1,12 @@
 const express = require('express');
+const page = require('../models/page');
 const router = express.Router();
 // Get pages index 
 router.get('/', function (req, res) {
     res.send('admin area');
 });
+//   Get page model
+const Page = require('../models/page');
 // Get add page  
 router.get('/', function (req, res) {
     const title = '';
@@ -15,8 +18,10 @@ router.get('/', function (req, res) {
         slug: slug,
         content: content
     });
+
 });
-// Post add pages
+
+// Post add page
 router.post('/', function (req, res) {
 
     req.checkBody('title', 'Title must have a value').notEmpty();
@@ -37,7 +42,28 @@ router.post('/', function (req, res) {
             content: content
         });
     } else {
-        console.log('succcess')
+        Page.findOne({ slug: slug }, function (err, page) {
+            if (page) {
+                req.flash('danger', 'Page slug exists, choose another.');
+                res.render('admin/add_page', {
+                    title: title,
+                    slug: slug,
+                    content: content
+                });
+            } else {
+                let page = new page({
+                    title: title,
+                    slug: slug,
+                    content: content,
+                    sorting: 0
+                });
+                page.save(function (err) {
+                    if (err) return console.log(err)
+                    req.flash('success', 'Page added!')
+                    res.redirect(/admin/pages)
+                });
+            }
+        });
     }
 });
 
