@@ -3,7 +3,11 @@ const express = require('express')
 const router = express.Router();
 
 //  Account
-
+router.get('/account', (req, res) => {
+    res.render('/users/account', {
+        title: 'Account'
+    });
+});
 //  Home page.//
 router.get('/', (req, res) => {
     res.render('index', {

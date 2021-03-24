@@ -1,6 +1,12 @@
 const express = require('express');
 const page = require('../models/page');
 const router = express.Router();
+//account 
+router.get('/account', (req, res) => {
+    res.render('users/account', {
+        title: 'Account'
+    });
+});
 // Get pages index 
 router.get('/', function (req, res) {
     res.send('admin area');
@@ -60,7 +66,7 @@ router.post('/', function (req, res) {
                 page.save(function (err) {
                     if (err) return console.log(err)
                     req.flash('success', 'Page added!')
-                    res.redirect(/admin/pages)
+                    res.redirect(admin / pages)
                 });
             }
         });

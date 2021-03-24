@@ -7,9 +7,6 @@ const config = require('./config/database');
 const session = require('express-session');
 const expressValidator = require('express-validator');
 
-const signUp = require('./models/newUser')
-const signIn = require('./models/oldUser')
-
 //Connect to db
 mongoose.connect(config.database)
 const db = mongoose.connection;
@@ -45,7 +42,7 @@ app.use(session({
 
 //  Express Validator middleware
 app.use(expressValidator({
-    errorFormatter: function (param, msg, value) {
+    errorFormatter: (param, msg, value) => {
         const namespace = param.split('.'),
             root = namespace.shift(),
             formParam = root;
@@ -64,7 +61,7 @@ app.use(expressValidator({
 // Express Messages Middleware //
 
 app.use(require('connect-flash')());
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
     res.locals.messages = require('express-messages')(req, res);
     next();
 });
@@ -74,7 +71,7 @@ const pages = require('./routes/pages.js')
 const adminPages = require('./routes/adminPage.js');
 
 
-app.use('/admin/pages', adminPages);
+app.use('/admin/pages/', adminPages);
 app.use('/', pages);
 
 // starting the server here we using port 8080
