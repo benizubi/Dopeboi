@@ -1,2 +1,12 @@
 <%- include('_layouts/header') %>
     <%- include('_layouts/navbar2') %>
+        <div class="container">
+            <%- messages('messages', locals) %>
+                <% if(errors) { %>
+                    <% errors.forEach(function (error) { %>
+                        <div class="alert-danger">
+                            <%= error.msg %>
+                        </div>
+                        <% }); %>
+                            <% } %>
+        </div>

@@ -16,6 +16,30 @@ router.get('/', function (req, res) {
         content: content
     });
 });
+// Post add pages
+router.post('/', function (req, res) {
+
+    req.checkBody('title', 'Title must have a value').notEmpty();
+    req.checkBody('content', 'Content must have a value').notEmpty();
+
+    const title = req.body.title;
+    const slug = req.body.slug.replace(/\s+/g, '-').toLowerCase();
+    if (slug == "") slug = title.replace(/\s+/g, '-').toLowerCase();
+    const content = req.body.content;
+
+    let errors = req.validationErrors();
+
+    if (errors) {
+        res.render('admin/add_page', {
+            errors: errors,
+            title: title,
+            slug: slug,
+            content: content
+        });
+    } else {
+        console.log('succcess')
+    }
+});
 
 // Exports 
 module.exports = router;

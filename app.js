@@ -19,7 +19,7 @@ db.once('open', function () {
 });
 // init app
 const app = express();
-// view engine 
+// view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 // Set public /style folder / override method
@@ -28,12 +28,12 @@ app.use(express.static(path.join(__dirname, 'styles')));
 
 // app.use(methodOverride('_method'));
 
+//   Set global errors variable
+app.locals.errors = null;
 
 //  Body Parser middleware
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(bodyParser.json());
 
 //  Express Session middleware
 app.use(session({
