@@ -3,29 +3,12 @@ const express = require('express')
 const router = express.Router();
 
 
-// account manage //
-router.get('/account', (req, res) => {
-    res.render('users/account')
-})
-// gallery //
-router.get('/gallery', (req, res) => {
-    res.render('users/gallery')
-})
-//register //
-router.get('/register', (req, res) => {
-    res.render('users/register')
-})
-// shopping //
-router.get('/shopping', (req, res) => {
-    res.render('users/shopping')
-})
-
-//Home page.//
-router.get('/home', (req, res) => {
+//  Home page.//
+router.get('/', (req, res) => {
     res.render('index', {
         title: 'Home'
     });
-})
+});
 
-//Exports
+//  Exports //
 module.exports = router;

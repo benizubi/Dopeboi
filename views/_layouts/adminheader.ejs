@@ -1,33 +1,33 @@
-<nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md py-0 fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/home">DOPEBOI</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="/gallery">GALLERY</a>
-                <a class="nav-link" href="/shopping">SHOPPING</a>
-                <a class="nav-link" href="/account">ACCOUNT</a>
+<%- include('_layouts/header') %>
+    <nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md py-0 fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/home">DOPEBOI</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="/gallery">GALLERY</a>
+                    <a class="nav-link" href="/shopping">SHOPPING</a>
+                    <a class="nav-link" href="/account">ACCOUNT</a>
+                </div>
+
+                <form id="searchBar" class="d-flex   justify-content-end">
+                    <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
+                    <button class="btn btn-outline-dark" type="submit">Search</button>
+                </form>
             </div>
-
-
-            <form id="searchBar" class="d-flex   justify-content-end">
-                <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
-                <button class="btn btn-outline-dark" type="submit">Search</button>
-            </form>
         </div>
+    </nav>
+    <div class="container">
+        <%- messages ('messages', locals) %>
     </div>
-</nav>
-<div class="container">
-    <%- messages ('messages', locals) %>
-</div>
-<script>
-    $(function () {
-        $(document).scroll(function () {
-            const $nav = $("#mainNavbar");
-            $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+    <script>
+        $(function () {
+            $(document).scroll(function () {
+                const $nav = $("#mainNavbar");
+                $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+            });
         });
-    });
-</script>
+    </script>
