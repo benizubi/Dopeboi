@@ -1,141 +1,22 @@
 <%- include('_layouts/header') %>
-    <%- include('_layouts/navbar2') %>
+    <%- include('_layouts/adminheader') %>
 
-        <div id="carouselExampleDark" class="carousel carousel-light  slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3"
-                    aria-label="Slide 4"></button>
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4"
-                    aria-label="Slide 5"></button>
+        <h2 class="page-title">Add a page </h2>
+        <a href="/admin/pages" class="btn btn-primary"> Back to all pages</a>
+        <br><br>
+        <form method="post" action="admin/pages/add-page">
+            <div class="form-group">
+                <label for="">Title</label>
+                <input type="text" class="form-control" name="title" id="" value="<%= title %>" placeholder="Title">
             </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="2000">
-                    <img id="slideshow1" src="/imgs/a.png" class="d-block w-100" alt="">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>ALL RIGHTS RESERVED </p>
-                    </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="2000">
-                    <img id="slideshow1" src="/imgs/b.png" class="d-block w-100" alt="">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Second slide label</h5>
-                        <p>Some representative placeholder content for the second slide.</p>
-                    </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="2000">
-                    <img id="slideshow1" src="/imgs/c.png" class="d-block w-100" alt="">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Third slide label</h5>
-                        <p>Some representative placeholder content for the third slide.</p>
-                    </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="2000">
-                    <img id="slideshow1" src="/imgs/d.png" class="d-block w-100" alt="">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Third slide label</h5>
-                        <p>Some representative placeholder content for the third slide.</p>
-                    </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="2000">
-                    <img id="slideshow1" src="/imgs/e.png" class="d-block w-100" alt="">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Third slide label</h5>
-                        <p>Some representative placeholder content for the third slide.</p>
-                    </div>
-                </div>
+            <div class="form-group">
+                <label for="">Slug</label>
+                <input type="text" class="form-control" name="slug" id="" value="<%= slug %>" placeholder="Slug">
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-        <!-- this -->
-
-        <div class="px-5x ">
-            <div class="mx-0 row">
-                <div class="mb-10px px-5px col-md-6">
-                    <div class="border-0 text-white text-center card">
-                        <img src="/imgs/b.png" alt="Men's wear" class="card-img">
-                        <div class="d-flex align-items-center card-img-overlay">
-                            <div class="w-100 py-3">
-                                <h2 class="display-3 font-weight-bold mb-4">TOP PICKS </h2>
-                                <button type="button" class="btn btn-light">SHOP NOW</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mb-10px px-5px col-md-6">
-                    <div class="border-0 text-white text-center card">
-                        <img src="/imgs/c.png" alt="Men's wear" class="card-img">
-                        <div class="d-flex align-items-center card-img-overlay">
-                            <div class="w-100 py-3">
-                                <h2 class="display-3 font-weight-bold mb-4">New arrivals </h2>
-                                <button type="button" class="btn btn-light">SHOP NOW</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mb-10px px-5px col-lg-4">
-                    <div class="border-0 text-white text-center card">
-                        <img src="/imgs/c.png" alt="Men's wear" class="card-img">
-                        <div class="d-flex align-items-center card-img-overlay">
-                            <div class="w-100 py-3">
-                                <h2 class="display-4 mb-4">Jackets </h2>
-                                <button type="button" class=" text-white btn btn-link">SHOP NOW
-                                    <i class="fa-arrow-right fa ml-2">
-
-                                    </i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-10px px-5px col-lg-4">
-                    <div class="border-0 text-white text-center card">
-                        <img src="/imgs/c.png" alt="Lookbook" class="card-img">
-                        <div class="d-flex align-items-center card-img-overlay">
-                            <div class="w-100 py-3">
-                                <h2 class="display-4 mb-4">Lookbook </h2>
-                                <button type="button" class=" text-white btn btn-link">SHOP NOW
-                                    <i class="fa-arrow-right fa ml-2">
-                                        ::before
-                                    </i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-10px px-5px col-lg-4">
-                    <div class="border-0 text-white text-center card">
-                        <img src="/imgs/c.png" alt="Men's wear" class="card-img">
-                        <div class="d-flex align-items-center card-img-overlay">
-                            <div class="w-100 py-3">
-                                <h2 class="display-4 mb-4 text-white">Try this </h2>
-                                <button type="button" class="text-white btn btn-link">SHOP NOW
-                                    <i class="fa-arrow-right fa ml-2">
-                                        ::before
-                                    </i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="form-group">
+                <label for="">Content</label>
+                <textarea class="form-control" name="content" id="" cols="30" rows="10"><%= content %> </textarea>
             </div>
-        </div>
-        <%- include('_layouts/footer') %>
+            <button class="btn btn-default">Submit</button>
+        </form>
+        <%- include('_layouts/adminfooter') %>
