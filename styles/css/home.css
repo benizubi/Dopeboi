@@ -2,23 +2,8 @@ body {
     background: #ffffff;
     font-family: "Nunito", sans-serif;
 }
-#card1{
-    display:block;
-    height: 200px;
-    width: 100px;
-}
-#card2{
-    display:block;
-    height: 20px;
-    width: 10px;
-    max-height: 500px;
-    max-width: 100px;
-}
-#searchBar{
-    display:flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-}
+
+
 
 .centered {
     position: absolute;
@@ -56,10 +41,10 @@ body {
     color:rgb(3, 10, 71);
 }
 #mainNavbar2 .nav-link:hover {
-    color:rgb(0, 255, 21);
+    color:rgb(0, 0, 0);
 }
 #mainNavbar2 .navbar-brand {
-    color: #ccf517;
+    color: #0d0f05;
     font-size: 1.5rem;
 }
 #mainNavbar .nav-link:hover {
