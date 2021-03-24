@@ -4,7 +4,7 @@ const router = express.Router();
 
 //  Account
 router.get('/account', (req, res) => {
-    res.render('/users/account', {
+    res.render('users/account', {
         title: 'Account'
     });
 });
