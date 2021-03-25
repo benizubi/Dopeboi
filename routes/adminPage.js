@@ -3,7 +3,7 @@ const page = require('../models/page');
 const router = express.Router();
 
 //admin page 
-router.get('/admin/pages/', (req, res) => {
+router.get('/pages', (req, res) => {
     res.render('admin/add_page', {
         title: 'Account'
     });
@@ -16,9 +16,9 @@ router.get('/account', (req, res) => {
     });
 });
 // Get pages index 
-// router.get('/', function (req, res) {
-//     res.send('admin area');
-// });
+router.get('/', function (req, res) {
+    res.send('admin area');
+});
 //   Get page model
 const Page = require('../models/page');
 // Get add page  
