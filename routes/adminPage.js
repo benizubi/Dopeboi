@@ -1,6 +1,14 @@
 const express = require('express');
 const page = require('../models/page');
 const router = express.Router();
+
+//admin page 
+router.get('/admin/pages/', (req, res) => {
+    res.render('admin/add_page', {
+        title: 'Account'
+    });
+});
+
 //account 
 router.get('/account', (req, res) => {
     res.render('users/account', {
@@ -8,9 +16,9 @@ router.get('/account', (req, res) => {
     });
 });
 // Get pages index 
-router.get('/', function (req, res) {
-    res.send('admin area');
-});
+// router.get('/', function (req, res) {
+//     res.send('admin area');
+// });
 //   Get page model
 const Page = require('../models/page');
 // Get add page  
@@ -26,7 +34,6 @@ router.get('/', function (req, res) {
     });
 
 });
-
 // Post add page
 router.post('/', function (req, res) {
 
@@ -66,7 +73,7 @@ router.post('/', function (req, res) {
                 page.save(function (err) {
                     if (err) return console.log(err)
                     req.flash('success', 'Page added!')
-                    res.redirect(admin / pages)
+                    res.redirect('/admin/pages');
                 });
             }
         });
