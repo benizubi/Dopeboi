@@ -4,9 +4,9 @@
         <div class="container">
             <%- messages('messages', locals) %>
                 <% if(errors) { %>
-                    <% errors.forEach(function (error) { %>
+                    <% errors.forEach(function (err) { %>
                         <div class="alert alert-danger">
-                            <%= error.msg %>
+                            <%= err.msg %>
                         </div>
                         <% }); %>
                             <% } %>

@@ -10,14 +10,18 @@ router.get('/account', (req, res) => {
 });
 // GET pages index 
 router.get('/', function (req, res) {
-    res.send('admin area');
+    Page.find({}).sort({ sorting: 1 }).exec(function (err, pages) {
+        res.render('admin/pages', {
+            pages: pages
+        });
+    });
 });
 
 // Get add page  
-router.get('/add_page', function (req, res) {
-    const title = '';
-    const slug = '';
-    const content = '';
+router.get('/add-page', function (req, res) {
+    let title = '';
+    let slug = '';
+    let content = '';
 
     res.render('admin/add_page', {
         title: title,
@@ -26,16 +30,16 @@ router.get('/add_page', function (req, res) {
     });
 });
 
-// Post add page
+// POST add page
 router.post('/', function (req, res) {
-
+    // validators  warning message
     req.checkBody('title', 'Title must have a value').notEmpty();
     req.checkBody('content', 'Content must have a value').notEmpty();
 
-    const title = req.body.title;
-    const slug = req.body.slug.replace(/\s+/g, '-').toLowerCase();
+    let title = req.body.title;
+    let slug = req.body.slug.replace(/\s+/g, '-').toLowerCase();
     if (slug == "") slug = title.replace(/\s+/g, '-').toLowerCase();
-    const content = req.body.content;
+    let content = req.body.content;
 
     let errors = req.validationErrors();
 
@@ -56,7 +60,7 @@ router.post('/', function (req, res) {
                     content: content
                 });
             } else {
-                let page = new page({
+                let page = new Page({
                     title: title,
                     slug: slug,
                     content: content,

@@ -14,6 +14,7 @@ db.on('error', console.error.bind(console, 'Check Connection Error:'));
 db.once('open', function () {
     console.log('Successfully Connected to MongoDB');
 });
+
 // init app
 const app = express();
 // view engine setup
@@ -73,6 +74,13 @@ const adminPages = require('./routes/adminPage.js');
 
 app.use('/admin/pages/', adminPages);
 app.use('/', pages);
+
+
+app.get('/', (req, res) => {
+    res.render('index', {
+        title: 'Home'
+    });
+});
 
 // starting the server here we using port 8080
 const port = 8080;
