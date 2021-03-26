@@ -8,7 +8,7 @@
                 <h2 class="page-title">Add a page </h2>
                 <a href="/admin/pages" class="btn btn-primary"> Back to all pages</a>
                 <br><br>
-                <form method="post" action="admin/pages/add-page">
+                <form method="post" action="/admin/pages/add-page">
                     <div class="form-group">
                         <label for="">Title</label>
                         <input type="text" class="form-control" name="title" id="" value="<%= title %>"
@@ -20,9 +20,9 @@
                             placeholder="Slug">
                     </div>
                     <div class="form-group">
-                        <label for="content">Content</label>
-                        <textarea name="content" class="form-control" cols="30" rows="10"
-                            placeholder="Content"> <%= content %> </textarea>
+                        <label for="">Content</label>
+                        <textarea name="content" class="form-control" id="" cols="30" rows="10"
+                            placeholder="Content"><%= content %></textarea>
                     </div>
                     <button class="btn btn-primary">Submit</button>
                 </form>

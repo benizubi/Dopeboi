@@ -2,12 +2,6 @@ const express = require('express');
 const Page = require('../models/page');
 const router = express.Router();
 
-//account 
-router.get('/account', (req, res) => {
-    res.render('users/account', {
-        title: 'Account'
-    });
-});
 // GET pages index 
 router.get('/', function (req, res) {
     Page.find({}).sort({ sorting: 1 }).exec(function (err, pages) {
@@ -18,9 +12,9 @@ router.get('/', function (req, res) {
 });
 // Get add page  
 router.get('/add-page', function (req, res) {
-    let title = '';
-    let slug = '';
-    let content = '';
+    const title = '';
+    const slug = '';
+    const content = '';
 
     res.render('admin/add_page', {
         title: title,
@@ -32,15 +26,15 @@ router.get('/add-page', function (req, res) {
 // POST add page
 router.post('/add-page', function (req, res) {
     // validators  warning message
-    req.checkBody('title', 'Title must have a value.').notEmpty();
+    // req.checkBody('title', 'Title must have a value.').notEmpty();
     req.checkBody('content', 'Content must have a value.').notEmpty();
 
-    let title = req.body.title;
-    let slug = req.body.slug.replace(/\s+/g, '-').toLowerCase();
+    const title = req.body.title;
+    const slug = req.body.slug.replace(/\s+/g, '-').toLowerCase();
     if (slug == "") slug = title.replace(/\s+/g, '-').toLowerCase();
-    let content = req.body.content;
+    const content = req.body.content;
 
-    let errors = req.validationErrors();
+    const errors = req.validationErrors();
 
     if (errors) {
         res.render('admin/add_page', {

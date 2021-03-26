@@ -9,7 +9,7 @@ const expressValidator = require('express-validator');
 //Connect to db
 mongoose.connect(config.database)
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'Check Connection Error:'));
+db.on('error', console.error.bind(console, 'Checking Connection Errors:'));
 db.once('open', function () {
     console.log('Successfully Connected to MongoDB');
 });
@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'styles')));
 app.locals.errors = null;
 
 //  Body Parser middleware
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //  Express Session middleware
