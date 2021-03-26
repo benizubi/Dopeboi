@@ -7,7 +7,7 @@ const session = require('express-session');
 const expressValidator = require('express-validator');
 
 //Connect to db
-mongoose.connect(config.database)
+mongoose.connect(config.database, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Checking Connection Errors:'));
 db.once('open', function () {
