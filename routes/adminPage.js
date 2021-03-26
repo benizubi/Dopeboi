@@ -30,10 +30,10 @@ router.get('/add-page', function (req, res) {
 });
 
 // POST add page
-router.post('/', function (req, res) {
+router.post('/add-page', function (req, res) {
     // validators  warning message
-    req.checkBody('title', 'Title must have a value').notEmpty();
-    req.checkBody('content', 'Content must have a value').notEmpty();
+    req.checkBody('title', 'Title must have a value.').notEmpty();
+    req.checkBody('content', 'Content must have a value.').notEmpty();
 
     let title = req.body.title;
     let slug = req.body.slug.replace(/\s+/g, '-').toLowerCase();
@@ -59,7 +59,7 @@ router.post('/', function (req, res) {
                     content: content
                 });
             } else {
-                let page = new Page({
+                const page = new Page({
                     title: title,
                     slug: slug,
                     content: content,

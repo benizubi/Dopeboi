@@ -2,7 +2,6 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
-// const methodOverride = require('method-override');
 const config = require('./config/database');
 const session = require('express-session');
 const expressValidator = require('express-validator');
@@ -24,7 +23,6 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'styles')));
 
-// app.use(methodOverride('_method'));
 
 //   Set global errors variable
 app.locals.errors = null;
