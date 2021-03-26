@@ -67,18 +67,10 @@ app.use((req, res, next) => {
 
 // setting routers 
 const pages = require('./routes/pages.js')
-const adminPages = require('./routes/adminPage.js');
-
-
+const adminPages = require('./routes/admin_pages.js');
 app.use('/admin/pages/', adminPages);
 app.use('/', pages);
 
-
-app.get('/', (req, res) => {
-    res.render('index', {
-        title: 'Home'
-    });
-});
 
 // starting the server here we using port 8080
 const port = 8080;
