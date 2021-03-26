@@ -14,6 +14,18 @@ router.get('/', (req, res) => {
         title: 'Home'
     });
 });
+// Get add page  
+router.get('/add-page', function (req, res) {
+    let title = '';
+    let slug = '';
+    let content = '';
+
+    res.render('admin/add_page', {
+        title: title,
+        slug: slug,
+        content: content
+    });
+});
 
 //  Exports //
 module.exports = router;
