@@ -12,9 +12,9 @@ router.get('/', function (req, res) {
 });
 // Get add page  
 router.get('/add-page', function (req, res) {
-    const title = '';
-    const slug = '';
-    const content = '';
+    let title = '';
+    let slug = '';
+    let content = '';
 
     res.render('admin/add_page', {
         title: title,
