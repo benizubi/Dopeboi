@@ -22,7 +22,6 @@ router.get('/add-page', function (req, res) {
         content: content
     });
 });
-
 // POST add page
 router.post('/add-page', function (req, res) {
     // validators  warning message
@@ -31,7 +30,9 @@ router.post('/add-page', function (req, res) {
 
     const title = req.body.title;
     const slug = req.body.slug.replace(/\s+/g, '-').toLowerCase();
-    if (slug == "") slug = title.replace(/\s+/g, '-').toLowerCase();
+    if (slug == "") {
+        slug = title.replace(/\s+/g, '-').toLowerCase();
+    }
     const content = req.body.content;
 
     const errors = req.validationErrors();
