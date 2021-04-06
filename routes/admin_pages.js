@@ -25,7 +25,7 @@ router.get('/add-page', function (req, res) {
 // POST add page
 router.post('/add-page', function (req, res) {
     // validators  warning message
-    // req.checkBody('title', 'Title must have a value.').notEmpty();
+    req.checkBody('title', 'Title must have a value.').notEmpty();
     req.checkBody('content', 'Content must have a value.').notEmpty();
 
     const title = req.body.title;

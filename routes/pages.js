@@ -14,11 +14,6 @@ router.get('/', (req, res) => {
         title: 'Home'
     });
 });
-router.get('/add-page', (req, res) => {
-    res.render('index', {
-        title: 'Home'
-    });
-});
 // Get add page  
 
 //  Exports //
