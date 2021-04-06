@@ -31,7 +31,7 @@ router.post('/add-page', function (req, res) {
     const title = req.body.title;
     const slug = req.body.slug.replace(/\s+/g, '-').toLowerCase();
     if (slug == "") {
-        slug = title.replace(/\s+/g, '-').toLowerCase();
+        title.replace(/\s+/g, '-').toLowerCase();
     }
     const content = req.body.content;
 
