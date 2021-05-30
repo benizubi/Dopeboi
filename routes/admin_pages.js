@@ -24,18 +24,16 @@ router.get('/add-page', function (req, res) {
 });
 // POST add page
 router.post('/add-page', function (req, res) {
-    // validators  warning message
+    // validators  warning message for the field box.
     req.checkBody('title', 'Title must have a value.').notEmpty();
     req.checkBody('content', 'Content must have a value.').notEmpty();
 
-    const title = req.body.title;
-    const slug = req.body.slug.replace(/\s+/g, '-').toLowerCase();
-    if (slug == "") {
-        title.replace(/\s+/g, '-').toLowerCase();
-    }
-    const content = req.body.content;
+    let title = req.body.title;
+    let slug = req.body.slug.replace(/\s+/g, '-').toLowerCase();
+    if (slug == "") slug = title.replace(/\s+/g, '-').toLowerCase();
+    let content = req.body.content;
 
-    const errors = req.validationErrors();
+    let errors = req.validationErrors();
 
     if (errors) {
         res.render('admin/add_page', {
