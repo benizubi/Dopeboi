@@ -56,11 +56,12 @@ router.post('/add-page', function (req, res) {
                     title: title,
                     slug: slug,
                     content: content,
-                    sorting: 100
+                    sorting: 0
                 });
                 page.save(function (err) {
-                    if (err) return console.log(err)
-                    req.flash('success', 'Page added!')
+                    if (err) return console.log(err);
+
+                    req.flash('success', 'Page added!');
                     res.redirect('/admin/pages');
                 });
             }
