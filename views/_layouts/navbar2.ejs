@@ -12,11 +12,12 @@
         </div>
     </div>
 </nav>
-<br>
-<!-- prompt message for errors -->
-<div class="container">
-    <%- messages('messages', locals) %>
 
+
+<br>
+<br>
+<div class="container">
+    <%- messages ('messages', locals) %>
         <% if(errors) { %>
             <% errors.forEach(function (error) { %>
 
@@ -27,7 +28,6 @@
                     <% } %>
 </div>
 
-<!-- scrolling js effects.  -->
 <script>
     $(function () {
         $(document).scroll(function () {

@@ -52,7 +52,7 @@ router.post('/add-page', function (req, res) {
                     content: content
                 });
             } else {
-                const page = new Page({
+                let page = new Page({
                     title: title,
                     slug: slug,
                     content: content,

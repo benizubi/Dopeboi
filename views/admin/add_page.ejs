@@ -1,34 +1,37 @@
-<%- include('../_layouts/adminheader') %>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                <br>
-                <br>
-                <h2 class="page-title">Add a page </h2>
-                <a href="/" class="btn btn-primary"> Back to all pages</a>
-                <br><br>
+<%- include('../_layouts/header') %>
 
-                <form method="post" action="/admin/pages/add-page">
-                    <div class="form-group">
-                        <label for="">Title</label>
-                        <input type="text" class="form-control" name="title" id="" value="<%= title %>"
-                            placeholder="Title">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Slug</label>
-                        <input type="text" class="form-control" name="slug" id="" value="<%= slug %>"
-                            placeholder="Slug">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Content</label>
-                        <textarea name="content" class="form-control" id="" cols="30" rows="10"
-                            placeholder="Content"><%= content %></textarea>
-                    </div>
-                    <button class="btn btn-primary">Submit</button>
-                </form>
+    <%- include('../_layouts/adminheader') %>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <br>
+                    <br>
+                    <h2 class="page-title">Add a page </h2>
+                    <a href="/" class="btn btn-primary"> Back to all pages</a>
+                    <br><br>
+
+                    <form method="post" action="/admin/pages/add-page">
+                        <div class="form-group">
+                            <label for="">Title</label>
+                            <input type="text" class="form-control" name="title" id="" value="<%= title %>"
+                                placeholder="Title">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Slug</label>
+                            <input type="text" class="form-control" name="slug" id="" value="<%= slug %>"
+                                placeholder="Slug">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Content</label>
+                            <textarea name="content" class="form-control" id="" cols="30" rows="10"
+                                placeholder="Content"><%= content %></textarea>
+                        </div>
+                        <button class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 
 
-    <%- include('../_layouts/adminfooter') %>
+        <%- include('../_layouts/adminfooter') %>
