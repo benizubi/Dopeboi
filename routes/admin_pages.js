@@ -56,7 +56,7 @@ router.post('/add-page', function (req, res) {
                     title: title,
                     slug: slug,
                     content: content,
-                    sorting: 0
+                    sorting: 100
                 });
                 page.save(function (err) {
                     if (err) return console.log(err);
