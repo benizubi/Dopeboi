@@ -6,12 +6,13 @@ const Page = require('../models/page');
 
 // Get pages index
 router.get('/', function (req, res) {
+    const title = "";
     Page.find({}).sort({ sorting: 1 }).exec(function (err, pages) {
-        const title = "";
 
         res.render('admin/pages', {
             pages: pages,
             title: title
+
 
         });
     });
