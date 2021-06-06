@@ -30,11 +30,12 @@
     <!-- you can reorder any pages apart from the home page. -->
     <script>
         $('tbody').sortable({
+
             items: "tr:not('.home')",
             placeholder: "ui-state-highlight",
             update: function () {
-                let ids = $('tbody').sortable("serialize");
-                let url = "/admin/pages/reorder-pages";
+                const ids = $('tbody').sortable("serialize");
+                const url = "/admin/pages/reorder-pages";
                 $.post(url, ids);
             }
         });
