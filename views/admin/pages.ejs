@@ -4,7 +4,7 @@
     <br><br>
     <table class="table table-stripped">
         <thead>
-            <tr>
+            <tr class="home">
                 <th>Title</th>
                 <th>Edit</th>
                 <th>Delete</th>
@@ -12,7 +12,7 @@
         </thead>
         <tbody>
             <% pages.forEach(function(page){ %>
-                <tr>
+                <tr id="id_<%= page._id %> " class="<%= page.slug %>">
                     <td>
                         <%= page.title %>
                     </td>
@@ -26,4 +26,17 @@
                 <% }); %>
         </tbody>
     </table>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <!-- you can reorder any pages apart from the home page. -->
+    <script>
+        $('tbody').sortable({
+            items: "tr:not('.home')",
+            placeholder: "ui-state-highlight",
+            update: function () {
+                let ids = $('tbody').sortable("serialize");
+                let url = "/admin/pages/reorder-pages";
+                $.post(url, ids);
+            }
+        });
+    </script>
     <%- include('../_layouts/footer') %>

@@ -1,4 +1,5 @@
 const express = require('express');
+const { getMaxListeners } = require('../models/page');
 const router = express.Router();
 
 //Get  Page model
@@ -74,6 +75,24 @@ router.post('/add-page', function (req, res) {
                 });
             }
         });
+    }
+});
+// POST reorder pages index
+
+router.post('/reorder-pages', function (req, res) {
+    const ids = req.body['id[]'];
+    const count = 0;
+    for (var i = 0; i < ids.length; i++) {
+        const id = ids[i];
+        count++;
+        (function (count) {
+            Page.findById(id, function (err, page) {
+                page.sorting = count;
+                page.save(function (err) {
+                    if (err) return console.log(err);
+                });
+            });
+        })(count);
     }
 });
 
