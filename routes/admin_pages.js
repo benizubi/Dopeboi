@@ -80,8 +80,7 @@ router.post('/add-page', function (req, res) {
 // POST reorder pages index
 
 router.post('/reorder-pages', function (req, res) {
-    const idds = 'id[]';
-    const ids = req.body[idds];
+    const ids = req.body['id[]'];
     const count = 0;
 
     for (let i = 0; i < ids.length; i++) {
