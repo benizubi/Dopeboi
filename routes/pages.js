@@ -23,7 +23,7 @@ router.get('/add-page', function (req, res) {
     res.render('admin/add_page', {
         title: title,
         slug: slug,
-        content: content
+        content: contents
     });
 });
 
