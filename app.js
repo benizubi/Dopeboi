@@ -72,7 +72,7 @@ const adminPages = require('./routes/admin_pages.js');
 
 app.use('/admin/pages/', adminPages);
 app.use('/', pages);
-app.use.apply('/')
+
 
 // starting the server here we using port 8080
 const port = 8080;
